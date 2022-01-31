@@ -12,6 +12,19 @@ class MoodSelectionViewController: UIViewController {
 	@IBOutlet var stackView: UIStackView!
 	@IBOutlet var addMoodButton: UIButton!
 	
+	
+	
+	
+	@IBAction func addMoodTapped(_ sender: Any) {
+		guard let currentMood = currentMood else {
+			return
+		}
+
+		let newMoodEntry = MoodEntry(mood: currentMood, timestamp: Date())
+		moodsConfigurable.add(newMoodEntry)
+	}
+
+	
 	var moods: [Mood] = [] {
 		didSet {
 			currentMood = moods.first
@@ -74,6 +87,23 @@ class MoodSelectionViewController: UIViewController {
 		
 	}
 
-
+	var moodsConfigurable: MoodsConfigurable!
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		switch segue.identifier {
+		case "embedContainerViewController":
+			guard let moodsConfigurable = segue.destination as? MoodsConfigurable else {
+				preconditionFailure(
+					"View controller expected to conform to MoodsConfigurable")
+				
+			}
+			self.moodsConfigurable = moodsConfigurable
+			segue.destination.additionalSafeAreaInsets =
+			UIEdgeInsets(top: 0, left: 0, bottom: 160, right: 0)
+		default:
+			preconditionFailure("Unexpected segue identifier")
+		}
+	}
+			 
 }
 
