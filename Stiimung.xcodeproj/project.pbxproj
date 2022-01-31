@@ -93,7 +93,6 @@
 		0F0B202727A75937008F5A98 = {
 			isa = PBXGroup;
 			children = (
-				0F0B206F27A865F4008F5A98 /* ImageSelector.swift */,
 				0F0B203227A75937008F5A98 /* Stiimung */,
 				0F0B204927A75938008F5A98 /* StiimungTests */,
 				0F0B205327A75938008F5A98 /* StiimungUITests */,
@@ -114,6 +113,7 @@
 		0F0B203227A75937008F5A98 /* Stiimung */ = {
 			isa = PBXGroup;
 			children = (
+				0F0B206F27A865F4008F5A98 /* ImageSelector.swift */,
 				0F0B203327A75937008F5A98 /* AppDelegate.swift */,
 				0F0B203527A75937008F5A98 /* SceneDelegate.swift */,
 				0F0B203727A75937008F5A98 /* MoodSelectionViewController.swift */,
